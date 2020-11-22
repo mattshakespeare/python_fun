@@ -1,0 +1,49 @@
+#list of names
+#add name
+def add_name():
+    name = input('Enter the name you would like to add to the list: ')
+    return name
+#change name
+def change_name():
+    name_to_change = input('Enter the name you would like to change: ')
+    new_name = input('Enter the name you would like to change it to: ')
+    return name_to_change, new_name
+#delete name
+def delete_name():
+    name_to_delete = input('Enter the name you would like to delete: ')
+    return name_to_delete
+#view list
+def view_list(name_list):
+    for name in name_list:
+        print(name)
+#display menu; add name, change name, delete name, view all names, end program
+def main():
+    name_list = []
+    play = True
+    while play == True:
+        print('Select an option from the list:')
+        print('1)Add Name\n2)Change Name\n3)Delete Name\n4)View List\n5)Quit')
+        option = int(input('Enter choice here: '))
+        #add name to the list
+        if option == 1:
+            new_name = add_name()
+            name_list.append(new_name)
+        #change name
+        if option == 2:
+            name_to_change, new_name = change_name()
+            name_position = name_list.index(name_to_change)
+            name_list[name_position] = new_name
+        #change name in the list
+        elif option == 3:
+            name_to_delete = delete_name()
+            name_list.remove(name_to_delete)
+        #view names in list
+        elif option == 4:
+            view_list(name_list)
+        elif option == 5:
+            play = False
+        else:
+            print('Must select an option from the menu.')
+main()
+
+
