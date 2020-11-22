@@ -1,0 +1,44 @@
+# a simple math quiz
+import random
+#if 1 addition question
+def addition():
+    num1 = random.randint(0,100)
+    num2 = random.randint(0,100)
+    answer = num1 + num2
+    print('what is ',num1,'+',num2)
+    user_answer = int(input('= '))
+    return user_answer, answer
+
+#if 2 subtraction question
+def subtraction():
+    num1 = random.randint(50,100)
+    num2 = random.randint(0,50)
+    answer = num1 - num2
+    print('What is ',num1,'-',num2 )
+    user_answer = int(input('= '))
+    return user_answer, answer
+#check answer
+def check_answer(user_answer,answer):
+    if user_answer == answer:
+        print('Correct')
+    else:
+        print('Incorrect, the answer is', answer)
+#display menu
+def main():
+    play = True
+    while play == True:
+        print('Select one of the following options')
+        print('1)Addition \n2)subtraction \n3)Quit')
+        option = int(input('Enter a number: '))
+        if option == 1:
+            user_answer, answer = addition()
+            check_answer(user_answer, answer)
+        elif option == 2:
+            user_answer, answer = subtraction()
+            check_answer(user_answer, answer)
+        else:
+            play = False
+
+
+
+main()
