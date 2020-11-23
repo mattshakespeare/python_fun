@@ -1,0 +1,49 @@
+#add to file
+def add_to_file():
+    file = open('names.txt', 'a')
+    add = True
+    #while user wants to add to file
+    while add == True:
+        name = input('Enter a name to add to the file: ')
+        file.write(name + '\n')
+        choice = False
+        #while user decides to carry on adding to file
+        while choice == False:
+            user = input('Would you like to add another name enter yes or no: ')
+            if user == 'yes':
+                choice = True
+            elif user == 'no':
+                choice = True
+                add = False
+            else:
+                print('You must enter yes or no')
+    file.close()
+#read file
+def read_file():
+    #for item in file, print item
+    file = open('names.txt','r')
+    for name in file:
+        print(file.read())
+    file.close()
+def main():
+    #run program while user doesn't choose quit
+    run_program = True
+    while run_program == True:
+    #display menu
+        print('1)Add name to file\n2)Read File\n3)Quit')
+        menu = int(input('Enter selection here: '))
+        #add to file
+        if menu == 1:
+            add_to_file()
+        #read file
+        elif menu == 2:
+            read_file()
+        elif menu == 3:
+            run_program = False
+        else:
+            print('You must select one of the options.')
+
+
+main()
+
+
